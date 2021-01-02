@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function Formulario() {
   const [cita, setCita] = useState({
@@ -9,7 +10,6 @@ function Formulario() {
     sintomas: "",
   });
   const [error, setError] = useState(false);
-
   const { mascota, propietario, fecha, hora, sintomas } = cita;
 
   const handleClick = (e) => {
@@ -24,6 +24,11 @@ function Formulario() {
       setError(true);
       return;
     }
+
+    setError(false);
+
+    cita.id = uuidv4();
+    console.log(cita);
   };
 
   const handleInput = (e) => {
