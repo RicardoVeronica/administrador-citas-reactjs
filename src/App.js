@@ -18,7 +18,7 @@ function App() {
     } else {
       localStorage.setItem("citas", JSON.stringify([]));
     }
-  }, [arregloCitas]); // Array de dependencias
+  }, [arregloCitas, citasIniciales]); // Array de dependencias
 
   const crearCita = (citaNueva) => {
     // Toma las citas actuales y agrega la nueva
