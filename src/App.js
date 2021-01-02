@@ -16,6 +16,9 @@ function App() {
     setArregloCitas(nuevasCitas);
   };
 
+  const title =
+    arregloCitas.length === 0 ? "No hay citas" : "Administra tus citas";
+
   return (
     <>
       <h1>Administrador de pacientes</h1>
@@ -26,7 +29,7 @@ function App() {
             <Formulario crearCita={crearCita} />
           </div>
           <div className="one-half column">
-            <h2>Administra tus citas</h2>
+            <h2>{title}</h2>
             {arregloCitas.map((cita) => (
               <Cita key={cita.id} cita={cita} eliminarCita={eliminarCita} />
             ))}
