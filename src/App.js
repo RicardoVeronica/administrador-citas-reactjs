@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Formulario from "./components/Formulario";
 import Cita from "./components/Cita";
 
 function App() {
-  const [arregloCitas, setArregloCitas] = useState([]);
+  let citasIniciales = JSON.parse(localStorage.getItem("citas"));
+  if (!citasIniciales) {
+    citasIniciales = [];
+  }
+
+  const [arregloCitas, setArregloCitas] = useState(citasIniciales);
+
+  // Use effect es similar a componentDidMount y componentDidUpdate
+  useEffect(() => {
+    // Use effect = window.onload
+    if (citasIniciales) {
+      localStorage.setItem("citas", JSON.stringify(arregloCitas));
+    } else {
+      localStorage.setItem("citas", JSON.stringify([]));
+    }
+  }, [arregloCitas]); // Array de dependencias
 
   const crearCita = (citaNueva) => {
     // Toma las citas actuales y agrega la nueva
