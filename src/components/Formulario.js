@@ -30,6 +30,14 @@ function Formulario({ crearCita }) {
     cita.id = uuidv4();
 
     crearCita(cita);
+
+    setCita({
+      mascota: "",
+      propietario: "",
+      fecha: "",
+      hora: "",
+      sintomas: "",
+    });
   };
 
   const handleInput = (e) => {
@@ -55,6 +63,7 @@ function Formulario({ crearCita }) {
           className="u-full-width"
           placeholder="Nombre de la mascota"
           onInput={handleInput}
+          value={mascota}
         />
 
         <label>Nombre del propietario</label>
@@ -64,6 +73,7 @@ function Formulario({ crearCita }) {
           className="u-full-width"
           placeholder="Nombre del propietario"
           onInput={handleInput}
+          value={propietario}
         />
 
         <label>Fecha</label>
@@ -72,6 +82,7 @@ function Formulario({ crearCita }) {
           name="fecha"
           className="u-full-width"
           onInput={handleInput}
+          value={fecha}
         />
 
         <label>Hora</label>
@@ -80,6 +91,7 @@ function Formulario({ crearCita }) {
           name="hora"
           className="u-full-width"
           onInput={handleInput}
+          value={hora}
         />
 
         <label>Sintomas</label>
@@ -87,6 +99,7 @@ function Formulario({ crearCita }) {
           name="sintomas"
           className="u-full-width"
           onInput={handleInput}
+          value={sintomas}
         ></textarea>
 
         <button
